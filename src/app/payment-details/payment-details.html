@@ -1,0 +1,18 @@
+
+<div class="bg-body-secondary text-center py-5 rounded-2">
+  <h1>Payment details</h1>
+  <p class="lead">Manage your payment details here</p>
+</div>
+<div class="row mt-5">
+  <div class="com-6"><app-payment-detail-form/></div>
+  <div class="com-6">
+<ul class="list-group">
+  @for (pd of service.list(); track pd.paymentdetailId) {
+    <li class="list-group-item"> {{ pd.cardOwnerName }} </li>
+  } @empty {
+    <li>No users found.</li>
+  }
+</ul>
+
+  </div>
+</div>
