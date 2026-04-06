@@ -3,6 +3,7 @@ import { PaymentDetailForm } from "./payment-detail-form/payment-detail-form";
 //import { NgClass } from "../../../node_modules/@angular/common/types/_common_module-chunk";
 import { PaymentDetailService } from '../shared/payment-detail.service';
 import { PaymentDetail } from '../shared/payment-detail.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-payment-details',
@@ -11,7 +12,7 @@ import { PaymentDetail } from '../shared/payment-detail.model';
   styles: ``,
 })
 export class PaymentDetails implements OnInit {
-constructor(public service: PaymentDetailService) {
+constructor(public service: PaymentDetailService,private toastr: ToastrService) {
 
 
 }
@@ -24,6 +25,7 @@ constructor(public service: PaymentDetailService) {
     if(confirm('Are you sure to delete this record?')){
       this.service.deletePaymentDetail(id).subscribe({next: (res) => {
         this.service.refreshList();
+        this.toastr.warning('Deleted successfully', 'Payment Detail Register');
       },
       error: (err) => {console.log(err)}});
     }
