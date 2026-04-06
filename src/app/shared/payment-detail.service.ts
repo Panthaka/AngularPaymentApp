@@ -17,4 +17,13 @@ refreshList(){
     console.log(this.list());},
     error: (err) => {console.log(err)}});
 }
+ postPaymentDetail(){
+  return this.http.post(this.url, this.formData);
+}
+deletePaymentDetail(id:number){
+  return this.http.delete(`${this.url}/${id}`);
+}
+updatePaymentDetail(){
+  return this.http.put(`${this.url}/${this.formData.paymentDetailId}`, this.formData);
+}
 }

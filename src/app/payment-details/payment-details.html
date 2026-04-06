@@ -4,15 +4,29 @@
   <p class="lead">Manage your payment details here</p>
 </div>
 <div class="row mt-5">
-  <div class="com-6"><app-payment-detail-form/></div>
-  <div class="com-6">
-<ul class="list-group">
-  @for (pd of service.list(); track pd.paymentdetailId) {
-    <li class="list-group-item"> {{ pd.cardOwnerName }} </li>
-  } @empty {
-    <li>No users found.</li>
-  }
-</ul>
+  <div class="col-6"><app-payment-detail-form/></div>
+  <div class="col-6">
+    <ul class="list-group">
+      @for (pd of service.list(); track pd.paymentDetailId) {
+        <li class="list-group-item d-flex justify-content-between align-items-start mb-2 border px-4 py-3 rounded-3">
+        <div class="flex-grow-1 mouse-hover">
 
+          <div class="fw-bold">
+            {{ pd.cardOwnerName }}
+            <i class="fa-solid fa-pen-to-square" (click)="onUpdate(pd)"></i>
+          </div>
+          <div> {{ pd.cardNumber }}</div>
+          <div class="fw-bold">
+            {{ pd.expirationDate }}
+          </div>
+          <span class="text-secondary">
+            <i class="fa-solid fa-trash-can fa-lg-mouse-hover" (click)="onDelete(pd.paymentDetailId)"></i>
+          </span>
+        </div>
+        </li>
+      } @empty {
+        <li>No users found.</li>
+      }
+    </ul>
   </div>
 </div>

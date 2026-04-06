@@ -9,5 +9,5 @@ import { PaymentDetails } from "./payment-details/payment-details";
   styles: [],
 })
 export class App {
-  protected readonly title = signal('AngularPaymentApp');
+  protected readonly title = signal('');
 }
