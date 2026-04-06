@@ -1,6 +1,8 @@
 # AngularPaymentApp
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.2.
+<img width="1402" height="864" alt="image" src="https://github.com/user-attachments/assets/42867662-8658-41fa-9eb0-fa01e25e60e4" />
+
 
 ## Development server
 
